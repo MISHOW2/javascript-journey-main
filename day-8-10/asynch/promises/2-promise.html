@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <input type="text" id="input" placeholder="Enter name">
+  <input type="number" id="age" placeholder="Enter age">
+  <input type="email" id="email" placeholder="Enter email">
+
+  <button id="hello">Submit</button>
+
+  <script>
+    // Define the function to fetch user data
+    function fetchUserData() {
+      
+      // Add loading message immediately on button click
+      console.log("......loading Data");
+
+      // Create a promise
+      const promise = new Promise((resolve, reject) => {
+        let btn = document.getElementById("hello");
+        btn.addEventListener("click", () => {
+          let name = document.getElementById("input").value;
+          let age = document.getElementById("age").value;
+          let email = document.getElementById("email").value;
+
+          // Simulate validation with conditions
+          if (name === "hi" && age == 2) {
+            resolve(`Well done! Correct input received: Age ${age}, Email: ${email}`);
+          } else {
+            reject("Incorrect input. Please try again.");
+          }
+        });
+      });
+
+      // Handle promise resolution/rejection after a delay of 10 seconds
+      setTimeout(() => {
+        promise
+          .then((value) => {
+            console.log(value);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }, 10000);
+    }
+
+    // Call the function
+    fetchUserData();
+  </script>
+</body>
+</html>

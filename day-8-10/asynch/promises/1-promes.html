@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <input type="text" id="input">
+  <button id="hello" >Submit</button>
+  <script>
+    //create a promise
+    
+    const promise = new Promise((resolve,reject) =>{
+      let btn = document.getElementById("hello");
+      let inputElement = document.getElementById("input");
+
+      btn.addEventListener("click", ()=>{
+        if (inputElement.value === "hi") {
+          resolve("you have entered the right value, !Well done");
+        }else{
+          reject("you have entered the wrong value");
+        }
+      })
+    });
+ 
+
+    promise.then((value)=>{
+     console.log((value));
+     
+    }).catch((error)=>{
+      console.log(error);
+      
+    })
+  </script>
+</body>
+</html>

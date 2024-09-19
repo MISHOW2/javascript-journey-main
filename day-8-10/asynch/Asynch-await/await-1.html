@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    //promeise / Async- await
+
+    const preHeatOven =()=>{
+      return new Promise((resolve,reject) => {
+        setTimeout(()=>{
+          const preHeatOven = true;
+
+          if (preHeatOven) {
+            resolve("preHeat oven to 180deg");
+
+          }else{
+            reject("failed task")
+          }
+        },3000)
+      })
+    }
+
+    const addSugaAndChocoChips=()=>{
+      return new Promise((resolve,reject) => {
+        setTimeout(()=>{
+          const addChoco = true;
+
+          if (addChoco) {
+            resolve("place Butter and chocolate chips");
+
+          }else{
+            reject("failed task")
+          }
+        },3000)
+      })
+    }
+
+
+    const addFlourCocoAndSalt =()=>{
+      return new Promise((resolve,reject) => {
+        setTimeout(()=>{
+          const addFlourCocoAndSalt = true;
+
+          if (addFlourCocoAndSalt) {
+            resolve("add all together");
+
+          }else{
+            reject("failed task")
+          }
+        },3000)
+      })
+    }
+
+    const bakeMixture =()=>{
+      return new Promise((resolve,reject) => {
+        setTimeout(()=>{
+          const bakeMixture = true;
+
+          if (bakeMixture) {
+            resolve("bake for 24 minutes");
+
+          }else{
+            reject("failed task")
+          }
+        },3000)
+      })
+    }
+  
+  
+    const bakeChocolate= async ()=>{
+      try{
+        const task1 = await preHeatOven();
+      console.log(task1);
+
+      const task2 = await addSugaAndChocoChips();
+      console.log(task2);
+      
+      const task3 = await addFlourCocoAndSalt();
+     console.log(task3);
+     
+      const task4 = await bakeMixture();
+      console.log(task4);
+      console.log("enjoy you mixture");
+
+      }catch(error){
+        console.log(error);
+        
+      }
+
+
+      
+      
+      
+    }
+
+    bakeChocolate();
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let ArrayList =[
+      { 
+        message:"good morning"
+
+      },
+      { 
+        message:"good day"
+
+      } , 
+      { 
+        message:"good evening"
+
+      }
+    ];
+    processArray(call, ArrayList);
+
+
+    function processArray(call, ArrayList){
+      ArrayList.forEach(array=>{
+        call(array.message)
+        
+      })
+    }
+
+
+      function call(message) {
+        console.log(message);
+      }
+
+  </script>
+</body>
+</html>

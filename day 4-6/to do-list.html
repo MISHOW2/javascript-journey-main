@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      justify-content: center;
+      display: flex; 
+    }
+   #container{
+    
+    display: flex;
+    flex-direction: column;
+   }
+   input,button{
+    width: 100px;
+   }
+   label{font-size: 30px;}
+  </style>
+</head>
+<body>
+  <div id="container">
+    <label for="input">Task</label>
+  <input type="text" name="input" id="input"><br>
+  <button id="add">Add to screen</button>
+  </div>
+  
+   
+  <script>
+  
+  let inputElement = document.getElementById("input");
+  let container = document.getElementById("container");
+  let btn = document.getElementById("add");
+   
+  
+
+  btn.addEventListener("click", () => {
+  // Create a new <div> element
+  const newDiv = document.createElement("div");
+
+  newDiv.style.display="flex";
+ 
+  // Add text content to the new <div> from the input field
+  newDiv.textContent = inputElement.value;
+
+  // Create a delete button
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";  // Set the button text to "Delete"
+  deleteBtn.style = "width: 100px; height: 20px";
+  // Append the delete button to the new <div>
+  newDiv.appendChild(deleteBtn);
+   
+  if (inputElement.value === "") {
+   alert("sdasd");
+  
+  }else{
+     // Append the new <div> (with the delete button) to the container
+  container.appendChild(newDiv);
+   
+   // Clear the input field
+   inputElement.value = "";
+ 
+   // Add an event listener to the delete button to remove the <div> when clicked
+   deleteBtn.addEventListener("click", () => {
+     newDiv.remove();
+   });
+  }
+ 
+  });
+
+  </script>
+</body>
+</html>

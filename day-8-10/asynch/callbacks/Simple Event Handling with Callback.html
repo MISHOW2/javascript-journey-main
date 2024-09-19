@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <script>
+    // Simulating an asynchronous task
+function fetchData(callback) {
+  console.log("Fetching data...");
+
+  // Simulate a delay (asynchronous operation) of 2 seconds (2000 ms)
+  setTimeout(() => {
+    const data = { message: "Data fetched from server" }; // Simulated data
+    callback(data); // Call the callback function once data is ready
+  }, 2000);
+}
+
+// The callback function to process the data
+function processData(data) {
+  console.log("Processing data...");
+  console.log(data.message); // Process or log the fetched data
+}
+
+// Calling the fetchData function and passing processData as the callback
+fetchData(processData);
+
+   </script>
+</body>
+</html>

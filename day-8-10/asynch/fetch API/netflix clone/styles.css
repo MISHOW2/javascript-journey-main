@@ -1,0 +1,230 @@
+/* General styling */
+body {
+  background-color: #000000;
+  margin: 0;
+  font-family: "Inter", system-ui;
+  font-weight: 600;
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+}
+
+.navigation li a {
+  text-decoration: none;
+  color: white;
+}
+
+.search img {
+  width: 30px;
+  cursor: pointer;
+}
+
+.trending-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.trending-container img {
+  height: 400px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+#movie-description {
+  width: 100%;
+  max-width: 600px;
+}
+
+#move-name {
+  font-size: 28px;
+}
+
+.watch, .add {
+  width: 120px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: red;
+  color: white;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.add {
+  background-color: #454343;
+}
+
+.add-watchBtn {
+  display: flex;
+  gap: 20px;
+}
+
+.main-content {
+  display: grid;
+  justify-content: center;
+}
+
+.next-prevBtn {
+  margin: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.next-prevBtn button {
+  width: 60px;
+  height: 9px;
+  cursor: pointer;
+  background-color: #D9D9D9;
+}
+
+#swipe {
+  width: 40px;
+  height: 50px;
+}
+
+.trend-container {
+  display: grid;
+  gap: 50px;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Flexbox for the movies inside each genre */
+.movies-row {
+  display: flex;
+  gap: 10px; /* Add some space between each movie */
+  overflow-x: auto; /* Makes it scroll horizontally */
+  padding: 10px 0; /* Add some padding */
+}
+
+.movie-item {
+  min-width: 200px;
+  flex-shrink: 0;
+}
+
+.imgContainer img {
+  width: 100%;
+  max-width: 342px;
+  height: auto;
+}
+
+.genre-block {
+  margin-bottom: 30px;
+}
+
+.categoryName {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Media Queries for smaller screens */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .trending-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .trending-container img {
+    height: auto;
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .watch, .add {
+    width: 100px;
+  }
+
+  .add-watchBtn {
+    gap: 15px;
+  }
+
+  #move-name {
+    font-size: 24px;
+  }
+
+  .navigation ul {
+    gap: 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .navigation ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .trending-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    margin-top: 20px;
+    gap: 20px;
+  }
+
+  .trending-container img {
+    width: 100%;
+    height: auto;
+    max-width: 300px; /* Reduced max-width for smaller screens */
+  }
+
+  .next-prevBtn {
+    margin: 20px 0;
+    gap: 10px;
+  }
+
+  .watch, .add {
+    width: 100px;
+  }
+
+  .add-watchBtn {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .movies-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Grid layout for movies */
+    gap: 10px;
+  }
+
+  #move-name {
+    font-size: 18px;
+  }
+
+  #movie-description {
+    font-size: 14px;
+  }
+}

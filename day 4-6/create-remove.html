@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <input type="text" id="display" readonly>
+   <button class="num-btn">1</button>
+   <button class="num-btn">2</button>
+   <button class="operator">+</button>
+   <button class="equals-btn">=</button>
+   
+<script>
+
+let numberBtns = document.querySelectorAll('.num-btn');
+let display = document.getElementById("display");
+let equalsBtn = document.querySelector('.equals-btn');
+let operator = document.querySelector('.operator');
+
+let firstNumber = '';
+
+
+numberBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    display.value += btn.textContent;
+  });
+});
+
+operator.addEventListener("click", ()=>{
+   firstNumber = display.value;
+   display.value = "";
+});
+
+equalsBtn.addEventListener("click", () => {
+  let secondNumber = display.value;
+  let result = Number(firstNumber) + Number(secondNumber);
+  display.value = result;
+  firstNumber = '';
+});
+
+
+ 
+   
+
+ </script>
+</body>
+</html>

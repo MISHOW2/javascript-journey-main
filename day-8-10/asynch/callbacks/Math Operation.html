@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    doMath(results,3,4);
+
+    function doMath(callback, x,y){
+        let result = x+y;
+
+        callback(result)
+    }
+
+    function results (result){
+      console.log("your Results are " + result);
+      
+    }
+  </script>
+</body>
+</html>

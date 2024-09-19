@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        #countdown {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">00:00:00</div>
+
+    <script>
+        // Set the countdown time (e.g., 5 minutes)
+        let countdownTime = 5 * 60;  // 5 minutes in seconds
+
+        // Function to format time as HH:MM:SS
+        function formatTime(seconds) {
+            let h = Math.floor(seconds / 3600);
+            let m = Math.floor((seconds % 3600) / 60);
+            let s = Math.floor(seconds % 60);
+            return `${h < 10 ? '0' + h : h}:${m < 10 ? '0' + m : m}:${s < 10 ? '0' + s : s}`;
+        }
+
+        // Get the countdown display element
+        const countdownDisplay = document.getElementById('countdown');
+
+        // Function to update the countdown
+        function updateCountdown() {
+            if (countdownTime > 0) {
+                countdownDisplay.textContent = formatTime(countdownTime);
+                countdownTime--;
+            } else {
+                countdownDisplay.textContent = "Time's up!";
+                clearInterval(countdownInterval);  // Stop the timer when it reaches 0
+            }
+        }
+
+        // Update countdown every second
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Initial call to display the starting time immediately
+        updateCountdown();
+    </script>
+</body>
+</html>
